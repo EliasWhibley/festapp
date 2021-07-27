@@ -1,0 +1,108 @@
+<div class="container p-5">
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="col-xl-6 col-md-8 col-sm-10">
+      <h3 class="d-flex justify-content-center" style="color:white"><img src="../../assets/img/festapp-final-w.png">
+      </h3>
+      <!-- FORMULARIO LOGIN -->
+      <form class="formMaterial" [formGroup]="formUser" (ngSubmit)="onClick()">
+        <mat-form-field class="form">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Ex. pat@example.com" id="inputError" name="email"
+            formControlName="email">
+          <mat-hint>Enter with your email</mat-hint>
+          <mat-error *ngIf="formUser.controls.email.errors && formUser.controls.email.touched">Email no valid
+          </mat-error>
+
+        </mat-form-field>
+        <mat-form-field class="form-pass">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Use your password" name="password" formControlName="password">
+          <mat-hint>Enter with your password</mat-hint>
+          <mat-error *ngIf="formUser.controls.password.errors && formUser.controls.password.touched">Password no valid
+          </mat-error>
+
+        </mat-form-field>
+
+        <!-- <div class="form-group">
+          <label style="color:black" for="email">Email</label>
+          <input type="text" class="form-control has-error has-feedback">
+          <p class="error">Debe ser un
+            correo electrónico</p>
+        </div>
+        <div class="form-group">
+          <label style="color:black" for="password">Password</label>
+          <input type="password" class="form-control" >
+          <p class="error" >El campo
+            tiene que
+            ser completado</p>
+        </div> -->
+        <div class="d-flex justify-content-between">
+          <button [disabled]="!formUser.valid" type="submit" class="entry btn btn-primary">Entry</button>
+          <button type="button" class="register btn btn-block btn-primary ml-3" data-toggle="modal"
+            data-target="#exampleModal">
+            Sign up
+          </button>
+        </div>
+      </form>
+      <div class="d-flex justify-content-center">
+        <!-- REGISTRO CON SPOTIFY -->
+        <a href="http://localhost:3000/auth/spotify" (click)="getSpotifyData()"><img class="spotifyButton"
+            src="../../assets/img/spotifyButton.png"></a>
+
+      </div>
+      <!-- MODAL -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¿Eres nuevo? Registrate para poder utilizar nuestra App
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- FORMULARIO MODAL PARA REGISTRARSE -->
+            <div class="modal-body">
+              <form class="formRegister" [formGroup]="formRegister">
+                <mat-form-field class="form">
+                  <mat-label>Name</mat-label>
+                  <input matInput type="text" name="name" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Surname</mat-label>
+                  <input matInput type="text" name="surname" formControlName="surname">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="text" name="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" name="password" formControlName="password">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Repeat Password</mat-label>
+                  <input matInput type="password" name="repeat_password" formControlName="repeat_password">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Phone Number</mat-label>
+                  <input matInput type="text" name="phone_number" formControlName="phone_number">
+                </mat-form-field>
+                <mat-form-field class="form">
+                  <mat-label>Username</mat-label>
+                  <input matInput type="text" name="username" formControlName="username">
+                </mat-form-field>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="register()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

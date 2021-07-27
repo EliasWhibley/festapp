@@ -1,0 +1,58 @@
+<!-- <div class="container p-5 mt-5">
+
+
+  <mat-grid-list cols="4" rowHeight="150px">
+    <mat-grid-tile class="artist" *ngFor="let band of bandas" [colspan]="1" [rowspan]="1"
+      [style.background-image]="'url('+band.img+')'" [style.background-size]="'cover'"
+      (click)="selectBand(band.idfestivales_bandas)">
+      <mat-grid-tile-header>{{band.nombre}}</mat-grid-tile-header>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Bandas seleccionadas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th *ngFor="let bandasSelect of bandasSeleccionadas" scope="row"></th>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+ -->
+<div class="container mt-5">
+  <div class="container example-container">
+    <h2>Fests</h2>
+
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="bandas" [cdkDropListConnectedTo]="[doneList]"
+      class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let band of bandas" cdkDrag>{{band.nombre}} <img class="imgdrag"
+          [src]="band.img">
+      </div>
+    </div>
+  </div>
+
+  <!--  <div cdkDropList #todoList="cdkDropList" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let band of bandas" cdkDrag>
+      {{band.nombre}}
+      <img class="imgdrag" *cdkDragPreview [src]="band.img" [alt]="band.nombre">
+    </div>
+  </div> -->
+
+  <div class="example-container">
+    <h2>Your fests</h2>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+      class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let dones of done" cdkDrag>{{dones.nombre}} <img class="imgdrag"
+          [src]="dones.img"></div>
+    </div>
+  </div>
+
+  <button class="sendrequest btn btn-primary" (click)="sendBands()">Save in your perfile</button>
+</div>

@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+body {
+  /* filter: grayscale(80%); */
+  background-image: url(assets/img/204398-OZ3P4A-964.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
